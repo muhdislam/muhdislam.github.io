@@ -55,6 +55,33 @@
       margin-bottom: 10px;
     }
 
+        @keyframes glitch {
+      0% {
+        text-shadow: 2px 0 red, -2px 0 cyan;
+        transform: skew(0deg);
+      }
+      20% {
+        text-shadow: -2px 0 red, 2px 0 cyan;
+        transform: skew(1deg);
+      }
+      40% {
+        text-shadow: 2px 0 red, -1px 0 cyan;
+        transform: skew(-1deg);
+      }
+      60% {
+        text-shadow: -1px 0 red, 2px 0 cyan;
+        transform: skew(0.5deg);
+      }
+      80% {
+        text-shadow: 1px 0 red, -2px 0 cyan;
+        transform: skew(-0.5deg);
+      }
+      100% {
+        text-shadow: 2px 0 red, -2px 0 cyan;
+        transform: skew(0deg);
+      }
+    }
+
     p {
       font-size: 1.2rem;
     }
