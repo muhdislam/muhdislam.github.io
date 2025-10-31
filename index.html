@@ -3,69 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Muhammad Islam</title>
+  <title>Muhammad Islam - Data Analyst | Web Developer</title>
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #121212;
-      color: #e0e0e0;
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #2d3748;
+      line-height: 1.6;
+      min-height: 100vh;
     }
 
     header {
-      background-color: #1e1e1e;
-      padding: 2rem 1rem;
+      background: white;
+      padding: 3rem 1rem;
       text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
     }
 
-    img.profile-pic {
-      width: 160px;
-      height: 160px;
-      border: 3px solid #007acc;
-      box-shadow: 0 0 8px rgba(0, 122, 204, 0.3);
-      margin-bottom: 1rem;
-      background-color: #333;
-      object-fit: cover; /* 🔥 this fixes stretching/squishing */
+    .header-content {
+      max-width: 800px;
+      margin: 0 auto;
     }
 
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid #2563eb;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     h1 {
-      margin: 0.2rem 0;
-      font-size: 2rem;
-      color: #ffffff;
+      font-size: 2.5rem;
+      color: #1a202c;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
     }
 
-    p.subtitle {
-      color: #bbbbbb;
-      margin-top: 0;
-      font-size: 1rem;
-    }
-
-    main {
-      padding: 2rem 1rem;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    section {
-      margin-bottom: 2.5rem;
-    }
-
-    a.button {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.7rem 1.2rem;
-      background-color: #007acc;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background 0.3s ease;
-    }
-
-    a.button:hover {
-      background-color: #005f99;
+    .subtitle {
+      font-size: 1.1rem;
+      color: #2563eb;
+      margin-bottom: 2rem;
+      font-weight: 500;
     }
 
     .button-group {
@@ -75,48 +64,234 @@
       flex-wrap: wrap;
     }
 
-    a {
-      color: #4eaaff;
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      background-color: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid #2563eb;
+      font-size: 0.95rem;
+    }
+
+    .btn:hover {
+      background-color: #1d4ed8;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: #2563eb;
+    }
+
+    .btn-secondary:hover {
+      background-color: #f0f4ff;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      background: white;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: #1a202c;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid #2563eb;
+      display: inline-block;
+    }
+
+    .about-text {
+      margin-bottom: 1.5rem;
+      color: #4a5568;
+      font-size: 1rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .skill-card {
+      background: #f7fafc;
+      padding: 1.5rem;
+      border-radius: 6px;
+      border-left: 4px solid #2563eb;
+    }
+
+    .skill-card h3 {
+      font-size: 1rem;
+      color: #2563eb;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    .skill-card p {
+      color: #4a5568;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.2rem;
+      gap: 1rem;
+    }
+
+    .contact-label {
+      font-weight: 600;
+      color: #2563eb;
+      min-width: 80px;
+    }
+
+    .contact-item a {
+      color: #2563eb;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
     }
 
     footer {
       text-align: center;
-      padding: 1rem;
+      padding: 2rem 1rem;
+      color: #718096;
       font-size: 0.9rem;
-      color: #777;
-      background-color: #1e1e1e;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+      }
+
+      section {
+        padding: 1.5rem;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="WhatsApp Image 2025-06-18 at 16.45.51.jpeg" alt="Profile Picture" class="profile-pic" />
-    <h1>Muhammad Islam Mohd Azmy</h1>
-    <p class="subtitle">Aspiring Data Analyst | Web Enthusiast | System Engineer </p>
-    <div class="button-group">
-      <a class="button" href="MUHAMMAD ISLAM RESUME.pdf" target="_blank">View My Resume</a>
-      <a class="button" href="ACADEMIC_TRANSCRIPT.pdf" target="_blank">View My Current (Unnoficial) Academic Transcript </a>
+    <div class="header-content">
+      <img src="WhatsApp Image 2025-06-18 at 16.45.51.jpeg" alt="Muhammad Islam" class="profile-pic" />
+      <h1>Muhammad Islam Mohd Azmy</h1>
+      <p class="subtitle">Aspiring Data Analyst | Full Stack Web Developer | System Engineer</p>
+      <div class="button-group">
+        <a class="btn" href="MUHAMMAD ISLAM RESUME.pdf" target="_blank">📄 View Resume</a>
+        <a class="btn btn-secondary" href="ACADEMIC_TRANSCRIPT.pdf" target="_blank">📋 Academic Transcript</a>
+      </div>
     </div>
   </header>
 
   <main>
     <section>
       <h2>About Me</h2>
-      <p>Hi! My name is Muhammad Islam, a passionate learner with interests in data analytics, software development, creating clean web experiences and technical solutions engineering. I enjoy solving problems with data and meaningful insights.</p>
-      <p> I'm a final year computer science student at <a href="https://aiu.edu.my/">Albukhary International University (AIU)</a> and I'm currently doing my Internship as a Technical Support Engineer at <a href="https://www.linkedin.com/company/infranet-systems-sdn-bhd">Infranet Systems Sdn. Bhd.</a></p>
+      <p class="about-text">
+        Hi! I'm Muhammad Islam, a passionate learner with a strong interest in data analytics, software development, and creating elegant technical solutions. I specialize in solving problems with data-driven insights and building modern web experiences.
+      </p>
+      <p class="about-text">
+        I'm a Computer Science graduate from <a href="https://aiu.edu.my/">Albukhary International University (AIU)</a>, with a specialization in Data Science and a focused passion for Full Stack Web Development and Data Analytics. During my career, I've worked as a Technical Support Engineer at Infranet Systems Sdn. Bhd., where I gained hands-on experience managing system performance, diagnosing complex technical issues, and developing scalable solutions under pressure.
+      </p>
     </section>
 
     <section>
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:muhdislam19@gmail.com">muhdislam19@gmail.com</a></p>
-      <p>Phone/Whatsapp: <a href="http://wa.me/60173507477">+60 17 350 7477</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/muhammad-islam-mohd-azmy-09441623a/">LinkedIn Profile</a></p>
+      <h2>Final Year Project</h2>
+      <div class="skill-card">
+        <h3>SCI Final Year Project System</h3>
+        <p>
+          A comprehensive platform designed to help students and lecturers manage and track final year projects effectively. The system utilizes modern CSS styling for an intuitive user interface, PHP for robust server-side processing, and MySQL for efficient and secure database management.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills & Expertise</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Web Development</h3>
+          <p>HTML, CSS, JavaScript, Angular/TypeScript, Node.js/Express.js</p>
+        </div>
+        <div class="skill-card">
+          <h3>Programming</h3>
+          <p>Java, Python (for analytical tools and automation)</p>
+        </div>
+        <div class="skill-card">
+          <h3>Tools & Systems</h3>
+          <p>Git Version Control, Database Management, Security & Backups</p>
+        </div>
+        <div class="skill-card">
+          <h3>Technical Problem-Solving</h3>
+          <p>System diagnostics, performance optimization, efficient solution design</p>
+        </div>
+        <div class="skill-card">
+          <h3>Data Analytics</h3>
+          <p>Data processing, analytical insights, complex information analysis</p>
+        </div>
+        <div class="skill-card">
+          <h3>Soft Skills</h3>
+          <p>Self-driven learning, detail-oriented, logical approach, thriving under pressure</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Get In Touch</h2>
+      <div class="contact-item">
+        <span class="contact-label">Email:</span>
+        <a href="mailto:muhdislam19@gmail.com">muhdislam19@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Phone:</span>
+        <a href="http://wa.me/60173507477">+60 17 350 7477</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">LinkedIn:</span>
+        <a href="https://www.linkedin.com/in/muhammad-islam-mohd-azmy-09441623a/">View Profile</a>
+      </div>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 Muhammad Islam Mohd Azmy
+    &copy; 2025 Muhammad Islam Mohd Azmy | Data Analyst & Web Developer
   </footer>
 
 </body>
