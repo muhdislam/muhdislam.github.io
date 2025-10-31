@@ -11,19 +11,90 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      --bg-primary: white;
+      --bg-secondary: #f7fafc;
+      --text-primary: #2d3748;
+      --text-dark: #1a202c;
+      --text-light: #4a5568;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+      --shadow: rgba(0, 0, 0, 0.07);
+    }
+
+    html[data-theme="dark"] {
+      --bg-gradient: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+      --bg-primary: #2d3748;
+      --bg-secondary: #1a202c;
+      --text-primary: #e2e8f0;
+      --text-dark: #f7fafc;
+      --text-light: #cbd5e0;
+      --shadow: rgba(0, 0, 0, 0.3);
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      color: #2d3748;
+      background: var(--bg-gradient);
+      color: var(--text-primary);
       line-height: 1.6;
       min-height: 100vh;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: var(--bg-primary);
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px var(--shadow);
+      transition: all 0.3s ease;
+      color: var(--accent);
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px var(--shadow);
+    }
+
+    .theme-toggle svg {
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      transition: opacity 0.3s ease;
+    }
+
+    .sun-icon {
+      opacity: 1;
+    }
+
+    .moon-icon {
+      opacity: 0;
+    }
+
+    html[data-theme="dark"] .sun-icon {
+      opacity: 0;
+    }
+
+    html[data-theme="dark"] .moon-icon {
+      opacity: 1;
     }
 
     header {
-      background: white;
+      background: var(--bg-primary);
       padding: 3rem 1rem;
       text-align: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+      box-shadow: 0 4px 6px var(--shadow);
+      transition: background 0.3s ease;
     }
 
     .header-content {
@@ -35,7 +106,7 @@
       width: 140px;
       height: 140px;
       border-radius: 50%;
-      border: 4px solid #2563eb;
+      border: 4px solid var(--accent);
       object-fit: cover;
       margin-bottom: 1.5rem;
       display: block;
@@ -45,14 +116,15 @@
 
     h1 {
       font-size: 2.5rem;
-      color: #1a202c;
+      color: var(--text-dark);
       margin-bottom: 0.5rem;
       font-weight: 700;
+      transition: color 0.3s ease;
     }
 
     .subtitle {
       font-size: 1.1rem;
-      color: #2563eb;
+      color: var(--accent);
       margin-bottom: 2rem;
       font-weight: 500;
     }
@@ -67,29 +139,29 @@
     .btn {
       display: inline-block;
       padding: 0.8rem 1.8rem;
-      background-color: #2563eb;
+      background-color: var(--accent);
       color: white;
       text-decoration: none;
       border-radius: 6px;
       font-weight: 600;
       transition: all 0.3s ease;
-      border: 2px solid #2563eb;
+      border: 2px solid var(--accent);
       font-size: 0.95rem;
     }
 
     .btn:hover {
-      background-color: #1d4ed8;
+      background-color: var(--accent-dark);
       box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
       transform: translateY(-2px);
     }
 
     .btn-secondary {
       background-color: transparent;
-      color: #2563eb;
+      color: var(--accent);
     }
 
     .btn-secondary:hover {
-      background-color: #f0f4ff;
+      background-color: var(--bg-secondary);
     }
 
     main {
@@ -99,26 +171,29 @@
     }
 
     section {
-      background: white;
+      background: var(--bg-primary);
       padding: 2.5rem;
       margin-bottom: 2rem;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 2px 8px var(--shadow);
+      transition: background 0.3s ease;
     }
 
     h2 {
       font-size: 1.5rem;
-      color: #1a202c;
+      color: var(--text-dark);
       margin-bottom: 1.5rem;
       padding-bottom: 0.75rem;
-      border-bottom: 3px solid #2563eb;
+      border-bottom: 3px solid var(--accent);
       display: inline-block;
+      transition: color 0.3s ease;
     }
 
     .about-text {
       margin-bottom: 1.5rem;
-      color: #4a5568;
+      color: var(--text-light);
       font-size: 1rem;
+      transition: color 0.3s ease;
     }
 
     .skills-grid {
@@ -129,23 +204,25 @@
     }
 
     .skill-card {
-      background: #f7fafc;
+      background: var(--bg-secondary);
       padding: 1.5rem;
       border-radius: 6px;
-      border-left: 4px solid #2563eb;
+      border-left: 4px solid var(--accent);
+      transition: background 0.3s ease;
     }
 
     .skill-card h3 {
       font-size: 1rem;
-      color: #2563eb;
+      color: var(--accent);
       margin-bottom: 0.75rem;
       font-weight: 600;
     }
 
     .skill-card p {
-      color: #4a5568;
+      color: var(--text-light);
       font-size: 0.95rem;
       line-height: 1.5;
+      transition: color 0.3s ease;
     }
 
     .contact-item {
@@ -157,41 +234,42 @@
 
     .contact-label {
       font-weight: 600;
-      color: #2563eb;
+      color: var(--accent);
       min-width: 80px;
     }
 
     .contact-item a {
-      color: #2563eb;
+      color: var(--accent);
       text-decoration: none;
       font-size: 1rem;
       transition: color 0.3s ease;
     }
 
     .contact-item a:hover {
-      color: #1d4ed8;
+      color: var(--accent-dark);
       text-decoration: underline;
     }
 
     .project-link {
       display: inline-block;
       margin-top: 1rem;
-      color: #2563eb;
+      color: var(--accent);
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s ease;
     }
 
     .project-link:hover {
-      color: #1d4ed8;
+      color: var(--accent-dark);
       gap: 0.5rem;
     }
 
     footer {
       text-align: center;
       padding: 2rem 1rem;
-      color: #718096;
+      color: var(--text-light);
       font-size: 0.9rem;
+      transition: color 0.3s ease;
     }
 
     @media (max-width: 600px) {
@@ -219,10 +297,35 @@
       .skills-grid {
         grid-template-columns: 1fr;
       }
+
+      .theme-toggle {
+        top: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
 <body>
+
+  <button class="theme-toggle" aria-label="Toggle dark mode">
+    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
 
   <header>
     <div class="header-content">
@@ -321,8 +424,22 @@
     &copy; 2025 Muhammad Islam Mohd Azmy | Data Analyst / Web Developer
   </footer>
 
-</body>
-</html>
+  <script>
+    const themeToggle = document.querySelector('.theme-toggle');
+    const html = document.documentElement;
+
+    // Check for saved theme preference or default to 'light'
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', currentTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const theme = html.getAttribute('data-theme');
+      const newTheme = theme === 'light' ? 'dark' : 'light';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  </script>
 
 </body>
 </html>
